@@ -8,7 +8,7 @@ There is a higher risk of errors in manual work and in case of an error it gets 
 ## Proposed System:
 Airline reservation system allows passengers to find flights as per their convenience and book them at their own discretion. This reduces the dependence on airlines to get the ticket booked. This software provides passengers with all the required information about flights along with the fares for economic and business class. Both domestic and international flights database can be accessed and the passenger is then able to book the tickets as they want. This mainly reduces manual errors.
 ## Modules:
-- #### Domestic flight module:- This modules provides information about all the available domestic flights along with their fares for both economy and business class.
-- #### International flight module:- This module provides information about all the international flights available and their respective fares for economy as well as business class.
-- #### Domestic flight booking module:- This module provides facility to book a domestic flight between a pair of cities. It takes as input the source and destination cities, date of journey and number of passengers and provides information about seat availability.
-- #### International flight booking module:- This module provides facility to book an international flight. It takes as input the source and destination cities, date of journey and number of passengers and provides information about seat availability.
+-  Domestic flight module:- This modules provides information about all the available domestic flights along with their fares for both economy and business class.
+-  International flight module:- This module provides information about all the international flights available and their respective fares for economy as well as business class.
+-  Domestic flight booking module:- This module provides facility to book a domestic flight between a pair of cities. It takes as input the source and destination cities, date of journey and number of passengers and provides information about seat availability.
+-  International flight booking module:- This module provides facility to book an international flight. It takes as input the source and destination cities, date of journey and number of passengers and provides information about seat availability.
