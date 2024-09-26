@@ -1,0 +1,82 @@
+CREATE DATABASE airline_reservation;
+USE airline_reservation;
+
+CREATE TABLE domestic_flights (
+    flight_id INT AUTO_INCREMENT PRIMARY KEY,
+    source_city VARCHAR(50),
+    destination_city VARCHAR(50),
+    departure_time DATE,
+    arrival_time DATE,
+    economy_fare DECIMAL(10, 2),
+    business_fare DECIMAL(10, 2),
+    seats_available INT
+);
+
+
+CREATE TABLE international_flights (
+    flight_id INT AUTO_INCREMENT PRIMARY KEY,
+    source_city VARCHAR(50),
+    destination_city VARCHAR(50),
+    departure_time DATE,
+    arrival_time DATE,
+    economy_fare DECIMAL(10, 2),
+    business_fare DECIMAL(10, 2),
+    seats_available INT
+);
+
+CREATE TABLE bookings (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    flight_id INT,
+    passenger_name VARCHAR(100),
+    seat_class VARCHAR(10),
+    num_passengers INT,
+    booking_date DATE,
+    FOREIGN KEY (flight_id) REFERENCES domestic_flights(flight_id) ON DELETE CASCADE
+);
+
+INSERT INTO domestic_flights (flight_id, source_city, destination_city, departure_time, arrival_time, economy_fare, business_fare, seats_available) 
+VALUES 
+(1, 'New York', 'Los Angeles', '08:00:00', '11:00:00', 300.00, 600.00, 150), 
+(2, 'Banglore', 'Chennai', '09:00:00', '12:00:00', 250.00, 500.00, 100), 
+(3, 'San Francisco', 'Seattle', '07:30:00', '10:00:00', 200.00, 450.00, 120),
+(4, 'Chennai', 'Hyderabad', '10:00:00', '13:00:00', 220.00, 480.00, 130),
+(5, 'Hyderabad', 'Banglore', '14:30:00', '15:45:00', 180.00, 400.00, 140),
+(6, 'Boston', 'Philadelphia', '12:00:00', '14:00:00', 210.00, 470.00, 110),
+(7, 'Chennai', 'Banglore', '16:00:00', '17:30:00', 230.00, 500.00, 125),
+(8, 'Denver', 'Salt Lake City', '09:00:00', '11:00:00', 190.00, 450.00, 115),
+(9, 'Miami', 'Atlanta', '08:00:00', '10:00:00', 240.00, 510.00, 135), 
+(10, 'Las Vegas', 'Phoenix', '07:30:00', '08:30:00', 180.00, 390.00, 160), 
+(11, 'Orlando', 'Tampa', '09:45:00', '10:45:00', 170.00, 350.00, 140), 
+(12, 'Dallas', 'Denver', '11:00:00', '13:30:00', 220.00, 470.00, 150), 
+(13, 'Austin', 'San Antonio', '14:15:00', '15:30:00', 200.00, 420.00, 140),
+(14, 'Houston', 'Dallas', '17:00:00', '18:15:00', 190.00, 380.00, 130),
+(15, 'Indianapolis', 'Detroit', '13:00:00', '14:15:00', 150.00, 320.00, 110), 
+(16, 'Columbus', 'Cleveland', '18:00:00', '19:00:00', 160.00, 330.00, 120), 
+(17, 'San Diego', 'San Jose', '09:00:00', '10:15:00', 190.00, 400.00, 145),
+(18, 'Portland', 'Seattle', '12:00:00', '13:30:00', 170.00, 350.00, 115),
+(19, 'New York', 'Boston', '15:00:00', '16:30:00', 230.00, 490.00, 100),
+(20, 'San Francisco', 'Los Angeles', '19:00:00', '21:30:00', 260.00, 550.00, 140);
+
+
+INSERT INTO international_flights (flight_id, source_city, destination_city, departure_time, arrival_time, economy_fare, business_fare, seats_available) 
+VALUES 
+(1, 'New York', 'London', '18:00:00', '06:30:00', 800.00, 1500.00, 100), 
+(2, 'Los Angeles', 'Tokyo', '12:00:00', '10:00:00', 900.00, 1700.00, 120), 
+(3, 'Chicago', 'Paris', '19:00:00', '09:00:00', 850.00, 1600.00, 90),
+(4, 'San Francisco', 'Sydney', '22:00:00', '08:00:00', 1200.00, 2200.00, 150),
+(5, 'Miami', 'Rio de Janeiro', '08:30:00', '18:30:00', 700.00, 1400.00, 110), 
+(6, 'Boston', 'Berlin', '17:00:00', '06:00:00', 780.00, 1450.00, 130),
+(7, 'Seattle', 'Dubai', '21:00:00', '12:00:00', 1100.00, 2000.00, 140),
+(8, 'Washington D.C.', 'Toronto', '09:00:00', '11:30:00', 400.00, 850.00, 180), 
+(9, 'Atlanta', 'Mexico City', '13:00:00', '15:30:00', 600.00, 1200.00, 160), 
+(10, 'Dallas', 'Madrid', '20:00:00', '08:30:00', 850.00, 1650.00, 125), 
+(11, 'Houston', 'Buenos Aires', '15:30:00', '04:30:00', 950.00, 1800.00, 100),
+(12, 'Los Angeles', 'Beijing', '12:30:00', '14:00:00', 1000.00, 1900.00, 130),
+(13, 'San Diego', 'Vancouver', '08:00:00', '10:00:00', 450.00, 900.00, 150),
+(14, 'New York', 'Dubai', '22:00:00', '11:00:00', 1100.00, 2100.00, 115),
+(15, 'Chicago', 'Hong Kong', '14:00:00', '08:00:00', 1050.00, 2000.00, 140), 
+(16, 'Boston', 'Rome', '18:00:00', '08:00:00', 880.00, 1600.00, 110), 
+(17, 'Miami', 'London', '20:00:00', '08:30:00', 800.00, 1500.00, 125), 
+(18, 'New York', 'Amsterdam', '17:00:00', '07:00:00', 850.00, 1600.00, 135),
+(19, 'Los Angeles', 'Seoul', '12:00:00', '10:00:00', 980.00, 1800.00, 145),
+(20, 'San Francisco', 'Melbourne', '21:00:00', '07:00:00', 1250.00, 2300.00, 120);
